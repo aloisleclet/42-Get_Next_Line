@@ -6,18 +6,31 @@
 /*   By: aleclet <aleclet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 17:41:16 by aleclet           #+#    #+#             */
-/*   Updated: 2016/12/22 18:00:23 by aleclet          ###   ########.fr       */
+/*   Updated: 2017/02/14 12:06:20 by aleclet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
+
 int			main()
 {
-
+	char	*text;
 	int		fd;
 	char	**line;
+	int		i;
 
-   	fd = open(get_next_line.c, O_RDONLY);
 
-	get_next_line(fd, char **line);
+	text = (void*)(0);
+	line = &text;
+   	fd = open("to_read.txt", O_RDONLY);
+	i = 0;
+
+	while (get_next_line(fd, line) != 0)
+	{
+		printf("[%s]\n", *line);	
+		//free(*line);
+	}
+
+	close(fd);
 	return (0);
 }
