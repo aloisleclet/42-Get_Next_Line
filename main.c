@@ -6,7 +6,7 @@
 /*   By: aleclet <aleclet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 17:41:16 by aleclet           #+#    #+#             */
-/*   Updated: 2017/02/14 12:06:20 by aleclet          ###   ########.fr       */
+/*   Updated: 2017/02/21 09:43:29 by aleclet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,15 @@ int			main()
    	fd = open("to_read.txt", O_RDONLY);
 	i = 0;
 
-	while (get_next_line(fd, line) != 0)
+	while (get_next_line(fd, line))
 	{
-		printf("[%s]\n", *line);	
-		//free(*line);
+		printf("==========>[%s]\n", *line);
+		free(*line);
 	}
+
+//
+//	get_next_line(fd, line);
+//	printf("==========>[%s]\n", *line);
 
 	close(fd);
 	return (0);
