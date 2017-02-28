@@ -6,9 +6,28 @@
 /*   By: aleclet <aleclet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 17:41:10 by aleclet           #+#    #+#             */
-/*   Updated: 2017/02/21 12:06:56 by aleclet          ###   ########.fr       */
+/*   Updated: 2017/02/23 13:57:21 by aleclet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+char	*ft_strndup(const char *s, int n)
+{
+	char	*s_dup;
+	int		i;
+
+	s_dup = (char *)malloc(n * sizeof(char) + 1);
+	if (s_dup != NULL)
+	{
+		i = 0;
+		while (i < n)
+		{
+			s_dup[i] = s[i];
+			i++;
+		}
+		s_dup[i] = '\0';
+	}
+	return (s_dup);
+}
 
 int		get_next_line(int const fd, char **line)
 {
